@@ -5,6 +5,9 @@ WIP slides for a planned talk at a gopher meetup.
 Slides are markdown rendered with Rust/[yew](https://github.com/DenisKolodin/yew),
 compiled to web assembly.
 
+Slides are separated by markdown line break `---`.
+Navigation by arrow keys and/or backspace and enter.
+
 ## Dev
 
 Prerequisites:
@@ -18,7 +21,7 @@ Start:
 cargo web start
 ```
 
-Navigate to `localhost:8000`. Move between slides with left/right arrows or backspace and enter.
+Open `localhost:8000` in browser. Move between slides with left/right arrows or backspace and enter.
 
 ## TODO
 
