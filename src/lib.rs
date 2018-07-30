@@ -1,16 +1,20 @@
 #[macro_use]
 extern crate yew;
 extern crate pulldown_cmark;
+#[macro_use]
+extern crate stdweb;
 
 #[macro_use]
 mod markdown;
 mod slides;
+mod hljs;
 
 use std::time::Duration;
 use yew::prelude::*;
 use yew::services::{TimeoutService, Task};
 use markdown::render_markdown;
 use slides::SLIDE_MARKDOWN;
+use hljs::HljsService;
 
 pub struct Model {
     slides: Vec<& 'static str>,
@@ -19,6 +23,7 @@ pub struct Model {
     link: ComponentLink<Model>,
     transition: f32,
     job: Option<Box<Task>>,
+    highlight: HljsService,
 }
 
 pub enum Msg {
@@ -33,7 +38,7 @@ impl Component for Model {
     fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
         let mut timeout = TimeoutService::new();
         let send_msg = link.send_back(|_| Msg::Transition(0.0));
-        let handle = timeout.spawn(Duration::from_millis(100), send_msg);
+        let handle = timeout.spawn(Duration::from_millis(50), send_msg);
         Model {
             link,
             timeout,
@@ -45,6 +50,7 @@ impl Component for Model {
                 .collect(),
             slide_idx: 0,
             job: Some(Box::new(handle)),
+            highlight: HljsService::new(),
         }
     }
 
@@ -55,13 +61,18 @@ impl Component for Model {
                     self.job = None;
                     false
                 } else {
+                    if value == 0.1 {
+                        self.highlight.highlight();
+                    }
+
                     if let Some(mut task) = self.job.take() {
                         task.cancel();
                     }
                     self.transition = value;
                     let send_msg = self.link.send_back(move|_| Msg::Transition(value + 0.1));
-                    let handle = self.timeout.spawn(Duration::from_millis(100), send_msg);
+                    let handle = self.timeout.spawn(Duration::from_millis(50), send_msg);
                     self.job = Some(Box::new(handle));
+
                     true
                 }
             }
@@ -75,8 +86,9 @@ impl Component for Model {
                                 task.cancel();
                             }
                             let send_msg = self.link.send_back(|_| Msg::Transition(0.1));
-                            let handle = self.timeout.spawn(Duration::from_millis(100), send_msg);
+                            let handle = self.timeout.spawn(Duration::from_millis(50), send_msg);
                             self.job = Some(Box::new(handle));
+
                             true
                         } else {
                             false
@@ -90,8 +102,9 @@ impl Component for Model {
                                 task.cancel();
                             }
                             let send_msg = self.link.send_back(|_| Msg::Transition(0.1));
-                            let handle = self.timeout.spawn(Duration::from_millis(100), send_msg);
+                            let handle = self.timeout.spawn(Duration::from_millis(50), send_msg);
                             self.job = Some(Box::new(handle));
+
                             true
                         } else {
                             false

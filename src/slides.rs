@@ -1,16 +1,27 @@
 pub const SLIDE_MARKDOWN: & 'static str = r#"
 ---
 # Slide 1
-## h2 Heading
-### h3 Heading
-#### h4 Heading
-##### h5 Heading
-###### h6 Heading
 
+Rust code
 
-## Horizontal Rules
+``` rs
+// Some comments
+fn main() {
+    println!("Hello World!");
+}
+```
 
-___
+Golang code
+``` go
+// Some comments
+import (
+    "fmt"
+)
+
+func main() {
+    fmt.Println("Hello World!")
+}
+```
 
 ---
 # Slide 2

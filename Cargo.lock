@@ -197,6 +197,7 @@ name = "rust-vs-go-slides"
 version = "0.1.0"
 dependencies = [
  "pulldown-cmark 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "stdweb 0.4.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "yew 0.5.0 (git+https://github.com/DenisKolodin/yew?rev=b957f8778ebb3ce88a6d10dfb41f04a4e44d6640)",
 ]
 
