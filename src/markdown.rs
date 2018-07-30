@@ -1,8 +1,8 @@
 // Based on: https://github.com/acmumn/mentoring/blob/master/web-client/src/view/markdown.rs
 
 use pulldown_cmark::{Alignment, Event, Parser, Tag, OPTION_ENABLE_TABLES};
-use yew::html::Html;
 use yew::html::Component;
+use yew::html::Html;
 use yew::virtual_dom::{VNode, VTag, VText};
 
 /// Renders a string of Markdown to HTML with the default options (footnotes
@@ -18,8 +18,8 @@ where
         ($child:expr) => {{
             let l = spine.len();
             assert_ne!(l, 0);
-            spine[l-1].add_child($child);
-        }}
+            spine[l - 1].add_child($child);
+        }};
     }
 
     for ev in Parser::new_ext(src, OPTION_ENABLE_TABLES) {
@@ -157,6 +157,6 @@ where
             }
             el
         }
-        Tag::FootnoteDefinition(ref _footnote_id) => VTag::new("span") // Footnotes are not rendered as anything special
+        Tag::FootnoteDefinition(ref _footnote_id) => VTag::new("span"), // Footnotes are not rendered as anything special
     }
 }

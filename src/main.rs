@@ -1,8 +1,8 @@
 extern crate rust_vs_go_slides;
 extern crate yew;
 
+use rust_vs_go_slides::model::Model;
 use yew::prelude::*;
-use rust_vs_go_slides::Model;
 
 fn main() {
     yew::initialize();

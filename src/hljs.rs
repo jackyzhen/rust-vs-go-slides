@@ -1,7 +1,8 @@
+// wrapper around the hljs js lib
+
 pub struct HljsService();
 
 impl HljsService {
-
     pub fn new() -> Self {
         HljsService()
     }

@@ -27,7 +27,7 @@ Open `localhost:8000` in browser. Move between slides with left/right arrows or 
 
 Must:
 
-- Animations between slides.
+- ~~Animations between slides.~~
 - Actual slide content...
 
 Nice to have:
