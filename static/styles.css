@@ -36,10 +36,11 @@ h6 {
 }
 
 h1 {
-  margin-top: 1rem;
+  margin-top: 3rem;
   margin-bottom: 1rem;
   font-weight: 700;
   font-size: 3.25rem;
+  text-align: center;
 }
 
 h2 {
@@ -271,9 +272,15 @@ ul ul {
   margin: 0.5em 0;
 }
 
+.text-left img {
+  display: block;
+  width: calc(100% + 1rem);
+  margin: 1rem -2rem;
+}
+
 img {
   display: block;
-  width: calc(100% + 4rem);
+  width: calc(100% + 3rem);
   margin: 1rem -2rem;
 }
 
@@ -303,7 +310,7 @@ figure figcaption {
 }
 
 table {
-  margin: 0 -1rem 1rem -1rem;
+  margin: 5rem -1rem 1rem -1rem;
   width: calc(100% + 2rem);
   overflow: hidden;
   border-collapse: collapse;

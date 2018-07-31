@@ -1,4 +1,3 @@
-pub const SLIDE_MARKDOWN: & 'static str = r#"
 ---
 # Gopher vs Ferris
 
@@ -191,5 +190,3 @@ It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
 ::: warning
 *here be dragons*
 :::
-
-"#;
