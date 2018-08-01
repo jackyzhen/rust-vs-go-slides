@@ -81,13 +81,11 @@ impl Model {
         if frame >= 1.0 {
             self.opacity = frame;
             self.handler = None;
+        // self.hl.highlight()
         } else if frame <= 0.0 {
             self.slide_idx = next_slide;
             self.transition(TransitionType::Show, next_slide);
         } else {
-            if frame >= 0.05 && frame <= 0.1 {
-                self.hl.highlight();
-            }
             self.transition(t_type, next_slide);
         }
         true

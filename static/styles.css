@@ -3,8 +3,13 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:300,400&subset=latin-ext';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css';
 
+
 :root {
   font-size: 20px;
+}
+
+code {
+  font-size: 19px;
 }
 
 div:focus {
@@ -12,7 +17,7 @@ div:focus {
 }
 
 body { /* TEXT PARENT */
-  width: 35em;
+  width: 40rem;
   margin: 0 auto;
   font-family: "Fira Sans", "Verdana", "Geneva", sans-serif;
   font-weight: 300;
@@ -163,35 +168,12 @@ kbd {
 
 blockquote {
   margin: 1rem -2rem;
-  padding: 1rem 2rem;
+  padding: 1rem;
   background-color: #eee;
   color: #666;
   font-size: 1.2rem;
   font-style: italic;
   line-height: 1.5;
-}
-
-blockquote::before {
-  content: "\201C";
-  display: block;
-  position: relative;
-  height: 0;
-  left: -1.3rem;
-  top: -0.5rem;
-  font-size: 2em;
-  color: #888;
-}
-
-blockquote::after {
-  content: "\201D";
-  display: inline-block;
-  position: relative;
-  height: 0;
-  top: 1.6rem;
-  left: 0.2rem;
-  font-size: 2em;
-  line-height: 0;
-  color: #888;
 }
 
 abbr[title] {
