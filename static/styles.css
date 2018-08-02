@@ -8,10 +8,6 @@
   font-size: 20px;
 }
 
-code {
-  font-size: 19px;
-}
-
 div:focus {
   outline: none;
 }
@@ -23,6 +19,7 @@ body { /* TEXT PARENT */
   font-weight: 300;
   line-height: 1.4;
   text-align: center;
+  font-size: 1.2rem;
 }
 
 body * {
@@ -171,7 +168,7 @@ blockquote {
   padding: 1rem;
   background-color: #eee;
   color: #666;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-style: italic;
   line-height: 1.5;
 }

@@ -46,7 +46,7 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 
 ***
 
-[https://play.rust-lang.org/?gist=f0571ebe0421feb70fcf120faf5e5b5d&version=stable&mode=debug&edition=2015](https://play.rust-lang.org/?gist=f0571ebe0421feb70fcf120faf5e5b5d&version=stable&mode=debug&edition=2015)
+[https://bit.ly/2KkNbeT](https://bit.ly/2KkNbeT)
 
 ---
 
@@ -56,7 +56,7 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 
 ***
 
-[https://play.rust-lang.org/?gist=a16ede4c47815dcd54fd7487b4eb664a&version=stable&mode=debug&edition=2015](https://play.rust-lang.org/?gist=a16ede4c47815dcd54fd7487b4eb664a&version=stable&mode=debug&edition=2015)
+[https://bit.ly/2AxlbF4](https://bit.ly/2AxlbF4)
 
 ---
 
@@ -66,7 +66,7 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 
 ***
 
-[https://play.rust-lang.org/?gist=196d526ebaf9031837385a8cf12d7a6d&version=stable&mode=debug&edition=2015](https://play.rust-lang.org/?gist=196d526ebaf9031837385a8cf12d7a6d&version=stable&mode=debug&edition=2015)
+[https://bit.ly/2n6J4Kk](https://bit.ly/2n6J4Kk)
 
 ---
 
@@ -75,7 +75,7 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 > "Rust enforces RAII (Resource Acquisition Is Initialization), so whenever an object goes out of scope, its destructor is called and its owned resources are freed. This behavior shields against resource leak bugs, so you'll never have to manually free memory or worry about memory leaks again!" - doc.rust-lang.org/rust-by-example
 
 ***
-[https://play.rust-lang.org/?gist=472470a3166f0dc9a9236d18974a61af&version=stable&mode=debug&edition=2015](https://play.rust-lang.org/?gist=472470a3166f0dc9a9236d18974a61af&version=stable&mode=debug&edition=2015)
+[https://bit.ly/2v6mu91](https://bit.ly/2v6mu91)
 
 ---
 
@@ -88,10 +88,10 @@ Concurrency in Go:
 [https://goplay.space/#NJH4SckyvDD](https://goplay.space/#NJH4SckyvDD)
 
 Reproduced in Rust:
-[https://play.rust-lang.org/?gist=9f7cffe92de0ec4eed053ff5b82e420c&version=stable&mode=debug&edition=2015](https://play.rust-lang.org/?gist=9f7cffe92de0ec4eed053ff5b82e420c&version=stable&mode=debug&edition=2015)
+[https://bit.ly/2O2F5ty](https://bit.ly/2O2F5ty)
 
 Actually Compiling in Rust:
-[https://play.rust-lang.org/?gist=6857be4bfe7775792fddab9aa61a36dd&version=stable&mode=debug&edition=2015](https://play.rust-lang.org/?gist=6857be4bfe7775792fddab9aa61a36dd&version=stable&mode=debug&edition=2015)
+[https://bit.ly/2ODYfXS](https://bit.ly/2ODYfXS)
 
 ---
 
