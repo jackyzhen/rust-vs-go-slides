@@ -1,4 +1,3 @@
-use hljs::HljsService;
 use slides::SLIDE_MARKDOWN;
 use std::time::Duration;
 use yew::prelude::*;
@@ -28,7 +27,6 @@ pub struct Model {
 
     timeout: TimeoutService,
     link: ComponentLink<Model>,
-    hl: HljsService,
 }
 
 impl Model {
@@ -45,7 +43,6 @@ impl Model {
                 .collect(),
             slide_idx: 0,
             handler: None,
-            hl: HljsService::new(),
         };
         model.transition(TransitionType::Show, 0);
         model
@@ -81,7 +78,6 @@ impl Model {
         if frame >= 1.0 {
             self.opacity = frame;
             self.handler = None;
-        // self.hl.highlight()
         } else if frame <= 0.0 {
             self.slide_idx = next_slide;
             self.transition(TransitionType::Show, next_slide);

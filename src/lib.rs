@@ -3,10 +3,8 @@ extern crate yew;
 
 extern crate pulldown_cmark;
 
-#[macro_use]
 extern crate stdweb;
 
-mod hljs;
 mod markdown;
 pub mod model;
 mod slides;
