@@ -1,6 +1,8 @@
 // Based on: https://github.com/acmumn/mentoring/blob/master/web-client/src/view/markdown.rs
 
 use pulldown_cmark::{Alignment, Event, Parser, Tag, OPTION_ENABLE_TABLES};
+use stdweb::unstable::TryFrom;
+use stdweb::web::Node;
 use yew::html::Component;
 use yew::html::Html;
 use yew::virtual_dom::{VNode, VTag, VText};
@@ -11,21 +13,23 @@ pub fn render_markdown<COMP>(src: &str) -> Html<COMP>
 where
     COMP: Component,
 {
-    let mut elems = vec![];
-    let mut spine = vec![];
+    let mut elems: Vec<VNode<COMP>> = Vec::new();
+    let mut spine: Vec<VNode<COMP>> = Vec::new();
 
     macro_rules! add_child {
         ($child:expr) => {{
             let l = spine.len();
             assert_ne!(l, 0);
-            spine[l - 1].add_child($child);
+            if let VNode::VTag(ref mut vtag) = spine[l - 1] {
+                vtag.add_child($child);
+            }
         }};
     }
 
     for ev in Parser::new_ext(src, OPTION_ENABLE_TABLES) {
         match ev {
             Event::Start(tag) => {
-                spine.push(make_tag(tag));
+                spine.push(VNode::VTag(make_tag(tag)));
             }
             Event::End(tag) => {
                 // TODO Verify stack end.
@@ -35,46 +39,64 @@ where
                 if let Tag::CodeBlock(_) = tag {
                     let mut pre = VTag::new("pre");
                     pre.add_child(top.into());
-                    top = pre;
+                    top = VNode::VTag(pre);
                 } else if let Tag::Table(aligns) = tag {
-                    for r in top.childs.iter_mut() {
-                        if let &mut VNode::VTag(ref mut vtag) = r {
-                            for (i, c) in vtag.childs.iter_mut().enumerate() {
-                                if let &mut VNode::VTag(ref mut vtag) = c {
-                                    match aligns[i] {
-                                        Alignment::None => {}
-                                        Alignment::Left => vtag.add_class("text-left"),
-                                        Alignment::Center => vtag.add_class("text-center"),
-                                        Alignment::Right => vtag.add_class("text-right"),
+                    if let VNode::VTag(ref mut vtag) = top {
+                        for r in vtag.childs.iter_mut() {
+                            if let &mut VNode::VTag(ref mut vtag) = r {
+                                for (i, c) in vtag.childs.iter_mut().enumerate() {
+                                    if let &mut VNode::VTag(ref mut vtag) = c {
+                                        match aligns[i] {
+                                            Alignment::None => {}
+                                            Alignment::Left => vtag.add_class("text-left"),
+                                            Alignment::Center => vtag.add_class("text-center"),
+                                            Alignment::Right => vtag.add_class("text-right"),
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 } else if let Tag::TableHead = tag {
-                    for c in top.childs.iter_mut() {
-                        if let &mut VNode::VTag(ref mut vtag) = c {
-                            // TODO
-                            //                            vtag.tag = "th".into();
-                            vtag.add_attribute("scope", &"col");
+                    if let VNode::VTag(ref mut vtag) = top {
+                        for c in vtag.childs.iter_mut() {
+                            if let &mut VNode::VTag(ref mut vtag) = c {
+                                vtag.add_attribute("scope", &"col");
+                            }
                         }
                     }
                 }
                 if l == 1 {
                     elems.push(top);
                 } else {
-                    spine[l - 2].add_child(top.into());
+                    if let VNode::VTag(ref mut vtag) = spine[l - 2] {
+                        vtag.add_child(top.into());
+                    }
                 }
             }
             Event::Text(text) => add_child!(VText::new(text.to_string()).into()),
             Event::SoftBreak => add_child!(VText::new("\n".to_string()).into()),
             Event::HardBreak => add_child!(VTag::new("br").into()),
+
+            // render any raw html as is
+            Event::Html(html) | Event::InlineHtml(html) => {
+                let html_string = html.to_string();
+                let dynamic_html = js! {
+                    const div = document.createElement("div");
+                    div.innerHTML = @{html_string};
+                    console.log(div.innerHTML);
+                    return div;
+                };
+                let node = Node::try_from(dynamic_html).expect("convert dynamic html");
+                let vnode = VNode::VRef(node);
+                elems.push(vnode);
+            }
             _ => println!("Unknown event: {:#?}", ev),
         }
     }
 
     if elems.len() == 1 {
-        VNode::VTag(elems.pop().unwrap())
+        elems.pop().unwrap()
     } else {
         html! {
             <div>{ for elems.into_iter() }</div>

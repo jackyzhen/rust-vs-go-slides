@@ -49,6 +49,8 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 [https://bit.ly/2KkNbeT](https://bit.ly/2KkNbeT)
 
 ---
+<iframe src="https://bit.ly/2KkNbeT" />
+---
 
 ### Zero Cost Abstraction
 
@@ -58,6 +60,8 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 
 [https://bit.ly/2AxlbF4](https://bit.ly/2AxlbF4)
 
+---
+<iframe src="https://bit.ly/2AxlbF4" />
 ---
 
 ### Functional Features
@@ -69,6 +73,8 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 [https://bit.ly/2n6J4Kk](https://bit.ly/2n6J4Kk)
 
 ---
+<iframe src="https://bit.ly/2n6J4Kk" />
+---
 
 ### Borrowing and Ownership
 
@@ -77,6 +83,8 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 ***
 [https://bit.ly/2v6mu91](https://bit.ly/2v6mu91)
 
+---
+<iframe src="https://bit.ly/2v6mu91" />
 ---
 
 ### Thread Safety and "Fearless Concurrency"
@@ -93,6 +101,12 @@ Reproduced in Rust:
 Actually Compiling in Rust:
 [https://bit.ly/2ODYfXS](https://bit.ly/2ODYfXS)
 
+---
+<iframe src="https://goplay.space/#NJH4SckyvDD" />
+---
+<iframe src="https://bit.ly/2O2F5ty" />
+---
+<iframe src="https://bit.ly/2ODYfXS" />
 ---
 
 ### Go and Rust Similarities

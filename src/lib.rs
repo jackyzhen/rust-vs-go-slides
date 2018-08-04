@@ -3,6 +3,7 @@ extern crate yew;
 
 extern crate pulldown_cmark;
 
+#[macro_use]
 extern crate stdweb;
 
 mod markdown;
@@ -59,12 +60,11 @@ impl Component for Model {
 impl Renderable<Model> for Model {
     fn view(&self) -> Html<Self> {
         html! {
-            <div style={format!("opacity: {}", self.opacity)},
-            tabindex="-1",
-            onkeydown=|e| Msg::GotKeyPress(e),
-            >
-            {render_markdown(self.slides[self.slide_idx])}
-            </div>
+            <div>
+                <div id="transition", tabindex="-1", onkeydown=|e| Msg::GotKeyPress(e), />
+                <div style={format!("opacity: {}", self.opacity)}, >
+            {render_markdown(self.slides[self.slide_idx])} </div>
+                </div>
         }
     }
 }
