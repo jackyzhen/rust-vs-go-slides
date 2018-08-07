@@ -11,7 +11,7 @@ pub mod model;
 mod slides;
 
 use markdown::render_markdown;
-use model::{Model, Msg, TransitionType};
+use model::{Model, Msg};
 use yew::prelude::*;
 
 impl Component for Model {
@@ -26,33 +26,12 @@ impl Component for Model {
         match cmd {
             Msg::Transition(t_type, next_slide) => self.handle_transition(t_type, next_slide),
             Msg::GotKeyPress(event) => match event.key().as_str() {
-                "ArrowLeft" | "Backspace" => {
-                    if self.slide_idx > 0 {
-                        let next_slide = self.slide_idx - 1;
-                        if let Some(mut task) = self.handler.take() {
-                            task.cancel();
-                        }
-                        self.transition(TransitionType::Fade, next_slide);
-                        true
-                    } else {
-                        false
-                    }
-                }
-                "ArrowRight" | "Enter" => {
-                    if self.slide_idx < self.slides.len() - 1 {
-                        let next_slide = self.slide_idx + 1;
-                        if let Some(mut task) = self.handler.take() {
-                            task.cancel();
-                        }
-
-                        self.transition(TransitionType::Fade, next_slide);
-                        true
-                    } else {
-                        false
-                    }
-                }
+                "ArrowLeft" | "Backspace" => self.go_left(),
+                "ArrowRight" | "Enter" => self.go_right(),
                 _ => false,
             },
+            Msg::GoLeft => self.go_left(),
+            Msg::GoRight => self.go_right(),
         }
     }
 }
@@ -60,10 +39,14 @@ impl Component for Model {
 impl Renderable<Model> for Model {
     fn view(&self) -> Html<Self> {
         html! {
-            <div>
-                <div id="transition", tabindex="-1", onkeydown=|e| Msg::GotKeyPress(e), />
-                <div style={format!("opacity: {}", self.opacity)}, >
+            <div id="container", tabindex="-1", onkeydown=|e| Msg::GotKeyPress(e), >
+                <div id="goLeft", onclick=|_| Msg::GoLeft, />
+                <div id="goRight", onclick=|_| Msg::GoRight, />
+                <div id="content", >
+                <div style={format!("opacity: {};", self.opacity)}, >
             {render_markdown(self.slides[self.slide_idx])} </div>
+                </div>
+                </div>
                 </div>
         }
     }

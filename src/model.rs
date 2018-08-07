@@ -16,6 +16,8 @@ pub enum TransitionType {
 pub enum Msg {
     GotKeyPress(KeyDownEvent),
     Transition(TransitionType, usize),
+    GoLeft,
+    GoRight,
 }
 
 pub struct Model {
@@ -85,5 +87,32 @@ impl Model {
             self.transition(t_type, next_slide);
         }
         true
+    }
+
+    pub fn go_left(&mut self) -> ShouldRender {
+        if self.slide_idx > 0 {
+            let next_slide = self.slide_idx - 1;
+            if let Some(mut task) = self.handler.take() {
+                task.cancel();
+            }
+            self.transition(TransitionType::Fade, next_slide);
+            true
+        } else {
+            false
+        }
+    }
+
+    pub fn go_right(&mut self) -> ShouldRender {
+        if self.slide_idx < self.slides.len() - 1 {
+            let next_slide = self.slide_idx + 1;
+            if let Some(mut task) = self.handler.take() {
+                task.cancel();
+            }
+
+            self.transition(TransitionType::Fade, next_slide);
+            true
+        } else {
+            false
+        }
     }
 }

@@ -84,7 +84,6 @@ where
                 let dynamic_html = js! {
                     const div = document.createElement("div");
                     div.innerHTML = @{html_string};
-                    console.log(div.innerHTML);
                     return div;
                 };
                 let node = Node::try_from(dynamic_html).expect("convert dynamic html");

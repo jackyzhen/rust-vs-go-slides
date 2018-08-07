@@ -6,7 +6,7 @@ Slides are markdown rendered with Rust/[yew](https://github.com/DenisKolodin/yew
 compiled to web assembly.
 
 Slides are separated by markdown line break `---`.
-Navigation by arrow keys and/or backspace and enter.
+Navigation by arrow keys and/or backspace and enter + on hover arrows on left and right side of screen
 
 ## Dev
 
@@ -28,9 +28,9 @@ Open `localhost:8000` in browser. Move between slides with left/right arrows or 
 Must:
 
 - ~~Animations between slides.~~
-- Actual slide content...
+- ~~Actual slide content...~~
 
 Nice to have:
 
-- Parse md as file instead of coded string.
-- Build static bundle and/or host somewhere.
+- Take md as file static instead
+- ~~Build static bundle and/or host somewhere.~~
