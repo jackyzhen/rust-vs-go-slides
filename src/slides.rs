@@ -8,7 +8,7 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 | ![](strongGopher.png)| ![](strongFerris.jpg) ![](angryFerris.jpg) |
 
 ---
-# Personal Motivation
+# Motivation
 ***
 
 ![](blog-post.png)
@@ -18,20 +18,28 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 | ![](scala.png) | ![](gopher.png) |
 
 ---
+# What is Rust?
+
+***
+
+![](what_is_rust.png)
+
+---
 ![](rust-evangelism.png)
 
 > "Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety." - rust-lang.org
 
 ***
 
+- zero-cost abstractions
+- move semantics
 - guaranteed memory safety
 - threads without data races
-- minimal runtime
-- zero-cost abstractions
-- type inference
-- functional features
 - trait-based generics
-
+- pattern matching
+- type inference
+- minimal runtime
+- efficient C bindings
 
 [Organizations Running Rust in Prod](https://www.rust-lang.org/en-US/friends.html)
 
@@ -58,10 +66,16 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 
 ***
 
-[https://bit.ly/2AxlbF4](https://bit.ly/2AxlbF4)
+Go:
+[https://goplay.space/#Ysp1zPEc1If](https://goplay.space/#Ysp1zPEc1If)
+
+Rust Generics:
+[https://bit.ly/2M9m5gF](https://bit.ly/2M9m5gF)
 
 ---
-<iframe src="https://bit.ly/2AxlbF4" />
+<iframe src="https://goplay.space/#Ysp1zPEc1If" />
+---
+<iframe src="https://bit.ly/2M9m5gF" />
 ---
 
 ### Functional Features
@@ -70,10 +84,14 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 
 ***
 
-[https://bit.ly/2n6J4Kk](https://bit.ly/2n6J4Kk)
+rust: [https://bit.ly/2n6J4Kk](https://bit.ly/2n6J4Kk)
+
+go: [https://goplay.space/#3yYfLsZTJk3](https://goplay.space/#3yYfLsZTJk3)
 
 ---
 <iframe src="https://bit.ly/2n6J4Kk" />
+---
+<iframe src="https://goplay.space/#3yYfLsZTJk3" />
 ---
 
 ### Borrowing and Ownership
@@ -91,63 +109,112 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 
 > "By leveraging ownership and type checking, many concurrency errors are compile-time errors in Rust rather than runtime errors. Therefore, rather than making you spend lots of time trying to reproduce the exact circumstances under which a runtime concurrency bug occurs, incorrect code will refuse to compile and present an error explaining the problem. We’ve nicknamed this aspect of Rust fearless concurrency." - doc.rust-lang.org/book/second-edition
 
-// TODO CHANGE TO MAP EXAMPLES
-Concurrency in Go:
-[https://goplay.space/#NJH4SckyvDD](https://goplay.space/#NJH4SckyvDD)
+Concurrent access in Go:
+[https://goplay.space/#dJuUK-bZg6g](https://goplay.space/#dJuUK-bZg6g)
 
 Reproduced in Rust:
-[https://bit.ly/2O2F5ty](https://bit.ly/2O2F5ty)
+[https://bit.ly/2vWUynv](https://bit.ly/2vWUynv)
 
 Actually Compiling in Rust:
-[https://bit.ly/2ODYfXS](https://bit.ly/2ODYfXS)
+[https://bit.ly/2MakV4j](https://bit.ly/2MakV4j)
 
 ---
-<iframe src="https://goplay.space/#NJH4SckyvDD" />
+<iframe src="https://goplay.space/#dJuUK-bZg6g" />
 ---
-<iframe src="https://bit.ly/2O2F5ty" />
+<iframe src="https://bit.ly/2vWUynv" />
 ---
-<iframe src="https://bit.ly/2ODYfXS" />
+<iframe src="https://bit.ly/2MakV4j" />
+---
+
+### Errors, Pattern Match and Enum Types
+***
+
+Nils and Errors in Go:
+[https://goplay.space/#nKy9J_Ap-A0](https://goplay.space/#nKy9J_Ap-A0)
+
+Options and Result in Rust:
+[https://bit.ly/2P1axKb](https://bit.ly/2P1axKb)
+
+---
+<iframe src="https://goplay.space/#nKy9J_Ap-A0" />
+---
+<iframe src="https://bit.ly/2P1axKb" />
+---
+
+### Interface and Traits
+***
+
+Go struct and interface:
+[https://goplay.space/#rX9Dhm2HiQe](https://goplay.space/#rX9Dhm2HiQe)
+
+Rust struct and traits:
+[https://bit.ly/2KOzN32](https://bit.ly/2KOzN32)
+
+---
+<iframe src="https://goplay.space/#rX9Dhm2HiQe" />
+---
+<iframe src="https://bit.ly/2KOzN32" />
 ---
 
 ### Go and Rust Similarities
 ***
 
 - Strongly typed.
-- Explicit error returns. No try catch and error bubbling.
-    - Rust returns Result type, which is a functional way to handle it. Forces you to handle it.
-    - Go returns explicit error type, but can be ignored...
-- Both pretty lightweight, cross platform.
-- Both prefer composition over inheritance. No "object oriented class/inheritance". Traits are almost like interfaces. Structs in both languages. You don't really create an instances of a class.
-- Both "systems programming languages", lets you go low level, touch bytes, OS calls.
-- Multiple return values (tuples in rust vs multiple return function in go);
-- Both have great tooling: Rust vs Go fmter, syntax HL/linting support. The compiler in Rust is especially verbose and tells you exactly which bit of the line of code is wrong, why its wrong and suggests solutions.
-- Easy test integration. Go can write nice tests with standard lib/tools, same in Rust. Can embed rust test code next to actual code.
+
+- Prefer composition over inheritance.
+
+- Errors are values.
+
+- Lightweight, performant, cross platform, systems programming.
+
+- Great tooling: IDE support, formatter, LSP.
+
+- Integrated testing and documentation.
 
 ---
 
-### Rust Difference I Prefer
+### Rust > Go
 ***
 
-- Very low cost call to C code vs very costly overheard Cgo.
-- Generally faster, more efficient, minimal runtime vs Go garbage collected, a bit bigger run time.
-- Guaranteed memory safety.
-- Guaranteed data-race/ thread safety.
-- Opt in to shared memory, locks data not code.
-- No nulls.
-- Higher level abstractions without the cost...
-- Functional features.
+- FFI to C code.
+
+- Generally more performant.
+
+- Compile time memory and thread safety guarantees.
+
+- Functional features and higher abstractions with no run time cost.
+
+- Package management support via Cargo.
 
 ---
 
-### Go Differences I Prefer
+### Go > Rust
 ***
 
-- Compile time is much faster. Vs rust... rust is really slow, especially release build. Because the compiler is doing a lot of optimisations.
-- Easier to learn because clean, simple syntax. Vs a lot more features in Rust: generics, traits, lifetimes/borrow.
-- Very good batteries included std lib. Vs rust... they prefer moving core libs out to crates, which I personally dislike.
-- Gets out of the way, lets you get stuff done.
-- Cross platform compilation is a breeze vs rust you need to setup your environments, install certain targets. Use of open source docker containers.
-- Green threads and easy to use concurrency primitives out of the box (go channels, go routines). Vs rust, more verbose libraries, OS level threads by default, has message passing but not the simple blocking kind like in Go.
+- Fast compile.
+
+- Easy cross compilation.
+
+- Batteries included std lib.
+
+- Simple, clear syntax and language features.
+
+- Learning curve and productivity.
+
+---
+### Rust Cont...
+
+- Unsafe Rust
+
+- Macros
+
+- Async/await
+
+- Trait Objects
+
+- Modules and crates
+
+- ...
 
 ---
 
@@ -156,7 +223,7 @@ Actually Compiling in Rust:
 
 - For learning Rust: [https://doc.rust-lang.org/book/second-edition](https://doc.rust-lang.org/book/second-edition)
 
-- For Playing with Rust: [https://play.rust-lang.org/](https://play.rust-lang.org/)
+- For playing with Rust: [https://play.rust-lang.org/](https://play.rust-lang.org/)
 
 - These ugly slides: [https://github.com/jackyzhen/rust-vs-go-slides](https://github.com/jackyzhen/rust-vs-go-slides)
 
