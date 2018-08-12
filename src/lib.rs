@@ -42,6 +42,9 @@ impl Renderable<Model> for Model {
             <div id="container", tabindex="-1", onkeydown=|e| Msg::GotKeyPress(e), >
                 <div id="goLeft", onclick=|_| Msg::GoLeft, />
                 <div id="goRight", onclick=|_| Msg::GoRight, />
+                <div id="pageCount", >
+                <span> {format!("{}/{}", self.slide_idx + 1, self.slides.len())}</span>
+                </div>
                 <div id="content", >
                 <div style={format!("opacity: {};", self.opacity)}, >
             {render_markdown(self.slides[self.slide_idx])} </div>
