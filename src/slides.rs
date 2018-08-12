@@ -31,20 +31,29 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 
 ***
 
-- zero-cost abstractions
-- move semantics
 - guaranteed memory safety
 - threads without data races
+- minimal runtime
 - trait-based generics
 - pattern matching
-- type inference
-- minimal runtime
-- efficient C bindings
+- zero-cost abstractions
 
 [Organizations Running Rust in Prod](https://www.rust-lang.org/en-US/friends.html)
 
 [Cool projects done with Rust](https://github.com/rust-unofficial/awesome-rust)
 
+---
+# Overview Comparison
+***
+|  |Go|Rust|
+|--|--|--|
+|Birth|Announced Nov 2009, 1.0 March 2012| Announced 2010, 1.0 May 2015|
+|Popularity|[TIOBE](https://www.tiobe.com/tiobe-index/) # 17 @ 0.996%, [SO](https://insights.stackoverflow.com/survey/2018/#most-loved-dreaded-and-wanted) Most Loved #5| [TIOBE](https://www.tiobe.com/tiobe-index/) #36 @ 0.267%. [SO](https://insights.stackoverflow.com/survey/2018/#most-loved-dreaded-and-wanted) Most Loved #1  ~3yrs |
+|Sponsor| Google| Mozilla|
+|[Type System](https://en.wikipedia.org/wiki/Comparison_of_programming_languages_by_type_system)| Strong, Static, Inferred| Strong, Static, Inferred|
+|Syntax Similarity |[C](https://en.wikipedia.org/wiki/Go_(programming_language)#Language_design)| [C, C++, ML](https://en.wikipedia.org/wiki/Rust_(programming_language)#Syntax) |
+|[Features](https://en.wikipedia.org/wiki/Comparison_of_programming_languages)|Imperative, sort of OO, Procedural, Reflective, Event Driven, Concurrent| Imperative, OO, Functional, Procedural, Generic, Concurrent.
+|Perf Benchmarks|[2-20x slower than C](https://benchmarksgame-team.pages.debian.net/benchmarksgame/faster/go-gcc.html)|[2-20x faster than Go](https://benchmarksgame-team.pages.debian.net/benchmarksgame/faster/rust-go.html) |
 
 ---
 
