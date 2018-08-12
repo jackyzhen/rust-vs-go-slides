@@ -23,7 +23,6 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 ***
 
 ![](what_is_rust.png)
-
 ---
 ![](rust-evangelism.png)
 
@@ -185,13 +184,13 @@ Rust struct and traits:
 ### Rust > Go
 ***
 
+- Functional features and higher abstractions with no run time cost.
+
 - FFI to C code.
 
 - Generally more performant.
 
 - Compile time memory and thread safety guarantees.
-
-- Functional features and higher abstractions with no run time cost.
 
 - Package management support via Cargo.
 
@@ -200,30 +199,25 @@ Rust struct and traits:
 ### Go > Rust
 ***
 
+- Simple, clear syntax and language features.
+
 - Fast compile.
 
 - Easy cross compilation.
 
 - Batteries included std lib.
 
-- Simple, clear syntax and language features.
-
 - Learning curve and productivity.
 
 ---
-### Rust Cont...
+### Conclusion?
+***
 
-- Unsafe Rust
+- Trade-offs.
 
-- Macros
+- Rust is fun!
 
-- Async/await
-
-- Trait Objects
-
-- Modules and crates
-
-- ...
+- Try it yourself.
 
 ---
 
