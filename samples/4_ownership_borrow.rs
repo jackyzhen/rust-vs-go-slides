@@ -21,11 +21,24 @@ fn main() {
     // println!("a contains: {:?}", a); // ERROR
 
     take_ownership_and_destroy_list(b);
+    // borrow_ownership(&b);
+    // borrow_mutably(&mut b);
+    // println!("b mutated: {:?}", b)
 
     // println!("b contains: {:?}", b); // ERROR
 }
 
-fn take_ownership_and_destroy_list(xs: Vec<isize>) {
+pub fn take_ownership_and_destroy_list(xs: Vec<isize>) {
     println!("Destroying a list {:?}", xs);
 } // 'xs' is dropped at end of function scope and the memory freed
 
+pub fn borrow_ownership(xs: &Vec<isize>) {
+    println!("First of xs is: {}", xs.iter().next().unwrap());
+}
+
+pub fn borrow_mutably(xs: &mut Vec<isize>) {
+    xs.pop();
+    xs.pop();
+    xs.pop();
+    xs.push(42);
+}

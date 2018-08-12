@@ -108,13 +108,13 @@ go: [https://goplay.space/#3yYfLsZTJk3](https://goplay.space/#3yYfLsZTJk3)
 > "Rust enforces RAII (Resource Acquisition Is Initialization), so whenever an object goes out of scope, its destructor is called and its owned resources are freed. This behavior shields against resource leak bugs, so you'll never have to manually free memory or worry about memory leaks again!" - doc.rust-lang.org/rust-by-example
 
 ***
-[https://bit.ly/2v6mu91](https://bit.ly/2v6mu91)
+[https://bit.ly/2vBEU1G](https://bit.ly/2vBEU1G)
 
 ---
-<iframe src="https://bit.ly/2v6mu91" />
+<iframe src="https://bit.ly/2vBEU1G" />
 ---
 
-### Thread Safety and "Fearless Concurrency"
+### Thread Safety and 'Fearless Concurrency'
 
 > "By leveraging ownership and type checking, many concurrency errors are compile-time errors in Rust rather than runtime errors. Therefore, rather than making you spend lots of time trying to reproduce the exact circumstances under which a runtime concurrency bug occurs, incorrect code will refuse to compile and present an error explaining the problem. We’ve nicknamed this aspect of Rust fearless concurrency." - doc.rust-lang.org/book/second-edition
 
