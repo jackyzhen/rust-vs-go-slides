@@ -7,6 +7,9 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 |:---|---:|
 | ![](strongGopher.png)| ![](strongFerris.jpg) ![](angryFerris.jpg) |
 
+
+- [Jacky Zhen](https://github.com/jackyzhen)
+
 ---
 # Motivation
 ***
