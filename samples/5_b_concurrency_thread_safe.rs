@@ -3,22 +3,21 @@ use std::thread;
 
 fn main() {
     // multiple producer, single receiver
-    let (c_tx, c_rx) = channel();
-    let mut ref_c = 0;
-    let mut xs = Vec::new(); 
+    let (sender, receiver) = channel();
+    let mut gopher_counter = 0;
 
-    for i in 0..100 {
+    // start 1000 OS threads, increment same counter
+    for i in 0..1000 {
         thread::spawn(|| {
-            ref_c = ref_c + 1;
-            xs.push(i);
-            c_tx.send(true).unwrap();
+            gopher_counter += 1;
+            sender.send(true).unwrap();
         });
     }
-
-    for _i in 0..100 {
-        c_rx.recv().unwrap();
+    
+    // receive 1000 msgs to wait for threads to finish
+    for _i in 0..1000 {
+        receiver.recv().unwrap();
     }
 
-    println!("{:?}", ref_c);
-    println!("{:?}", xs.len());
+    println!("{:?}", gopher_counter); // ???
 }

@@ -39,6 +39,7 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 - trait-based generics
 - pattern matching
 - zero-cost abstractions
+- ...
 
 [Organizations Running Rust in Prod](https://www.rust-lang.org/en-US/friends.html)
 
@@ -65,10 +66,24 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 
 ***
 
-[https://bit.ly/2KkNbeT](https://bit.ly/2KkNbeT)
+Mutability in go: [https://goplay.space/#I7tOM0WwbH3](https://goplay.space/#I7tOM0WwbH3)
+
+Rust: [https://bit.ly/2vFKakK](https://bit.ly/2vFKakK)
+---
+<iframe src="https://goplay.space/#I7tOM0WwbH3" />
+---
+<iframe src="https://bit.ly/2vFKakK" />
+---
+
+### Borrowing and Ownership
+
+> "Rust enforces RAII (Resource Acquisition Is Initialization), so whenever an object goes out of scope, its destructor is called and its owned resources are freed. This behavior shields against resource leak bugs, so you'll never have to manually free memory or worry about memory leaks again!" - doc.rust-lang.org/rust-by-example
+
+***
+[https://bit.ly/2vGFY4f](https://bit.ly/2vGFY4f)
 
 ---
-<iframe src="https://bit.ly/2KkNbeT" />
+<iframe src="https://bit.ly/2vGFY4f" />
 ---
 
 ### Zero Cost Abstraction
@@ -78,15 +93,15 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 ***
 
 Go:
-[https://goplay.space/#Ysp1zPEc1If](https://goplay.space/#Ysp1zPEc1If)
+[https://goplay.space/#O-cOQR9ErKm](https://goplay.space/#O-cOQR9ErKm)
 
 Rust Generics:
-[https://bit.ly/2M9m5gF](https://bit.ly/2M9m5gF)
+[https://bit.ly/2KOGH87](https://bit.ly/2KOGH87)
 
 ---
-<iframe src="https://goplay.space/#Ysp1zPEc1If" />
+<iframe src="https://goplay.space/#O-cOQR9ErKm" />
 ---
-<iframe src="https://bit.ly/2M9m5gF" />
+<iframe src="https://bit.ly/2KOGH87" />
 ---
 
 ### Functional Features
@@ -105,36 +120,25 @@ go: [https://goplay.space/#3yYfLsZTJk3](https://goplay.space/#3yYfLsZTJk3)
 <iframe src="https://goplay.space/#3yYfLsZTJk3" />
 ---
 
-### Borrowing and Ownership
-
-> "Rust enforces RAII (Resource Acquisition Is Initialization), so whenever an object goes out of scope, its destructor is called and its owned resources are freed. This behavior shields against resource leak bugs, so you'll never have to manually free memory or worry about memory leaks again!" - doc.rust-lang.org/rust-by-example
-
-***
-[https://bit.ly/2vBEU1G](https://bit.ly/2vBEU1G)
-
----
-<iframe src="https://bit.ly/2vBEU1G" />
----
-
 ### Thread Safety and 'Fearless Concurrency'
 
 > "By leveraging ownership and type checking, many concurrency errors are compile-time errors in Rust rather than runtime errors. Therefore, rather than making you spend lots of time trying to reproduce the exact circumstances under which a runtime concurrency bug occurs, incorrect code will refuse to compile and present an error explaining the problem. We’ve nicknamed this aspect of Rust fearless concurrency." - doc.rust-lang.org/book/second-edition
 
 Concurrent access in Go:
-[https://goplay.space/#dJuUK-bZg6g](https://goplay.space/#dJuUK-bZg6g)
+[https://goplay.space/#-0ZOrUyZN0a](https://goplay.space/#-0ZOrUyZN0a)
 
 Reproduced in Rust:
-[https://bit.ly/2vWUynv](https://bit.ly/2vWUynv)
+[https://bit.ly/2nyM8ik](https://bit.ly/2nyM8ik)
 
 Actually Compiling in Rust:
-[https://bit.ly/2MakV4j](https://bit.ly/2MakV4j)
+[https://bit.ly/2vH2Z77](https://bit.ly/2vH2Z77)
 
 ---
-<iframe src="https://goplay.space/#dJuUK-bZg6g" />
+<iframe src="https://goplay.space/#-0ZOrUyZN0a" />
 ---
-<iframe src="https://bit.ly/2vWUynv" />
+<iframe src="https://bit.ly/2nyM8ik" />
 ---
-<iframe src="https://bit.ly/2MakV4j" />
+<iframe src="https://bit.ly/2vH2Z77" />
 ---
 
 ### Errors, Pattern Match and Enum Types
@@ -215,6 +219,7 @@ Rust struct and traits:
 ---
 ### Conclusion?
 ***
+![](safety_vs_control.png)
 
 - Trade-offs.
 
@@ -232,6 +237,8 @@ Rust struct and traits:
 - For playing with Rust: [https://play.rust-lang.org/](https://play.rust-lang.org/)
 
 - These ugly slides: [https://github.com/jackyzhen/rust-vs-go-slides](https://github.com/jackyzhen/rust-vs-go-slides)
+
+- More indepth intro to Rust with way prettier slides: [https://thoughtram.io/rust-and-nickel/](https://thoughtram.io/rust-and-nickel/)
 
 - Good rust vs go code comparison: [https://codeburst.io/should-i-rust-or-should-i-go-59a298e00ea9](https://codeburst.io/should-i-rust-or-should-i-go-59a298e00ea9)
 

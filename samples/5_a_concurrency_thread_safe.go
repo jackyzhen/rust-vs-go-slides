@@ -5,26 +5,25 @@ import (
 )
 
 func main() {
-	c := make(chan struct{})
+	channel := make(chan struct{})
 
-	refC := 0
-	xs := []int{}
+	gopherCounter := 0
 	// m := map[string]string{}
 
-	for i := 0; i < 100; i += 1 {
-		go func(num int) {
-			refC = refC + 1
-			xs = append(xs, num)
+	// start 1000 go routines and increment the counter
+	for i := 0; i < 1000; i += 1 {
+		go func() {
+			gopherCounter++
 			// m["uhoh"] = "picnic"
 
-			c <- struct{}{}
-		}(i)
+			channel <- struct{}{}
+		}()
 	}
 
-	for i := 0; i < 100; i += 1 {
-		<-c
+	// read from channel 1000 times so main thread does exit before routines
+	for i := 0; i < 1000; i += 1 {
+		<-channel
 	}
 
-	fmt.Println(refC)    // ???
-	fmt.Println(len(xs)) // ???
+	fmt.Println(gopherCounter) // ???
 }

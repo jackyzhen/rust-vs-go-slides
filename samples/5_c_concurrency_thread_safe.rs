@@ -3,40 +3,29 @@ use std::sync::{Arc, Mutex};
 use std::thread;
 
 fn main() {
-    let (c_tx, c_rx) = channel();
-    let ref_c = 0;
-    let xs = Vec::new(); 
+    let (sender, receiver) = channel();
+    let gopher_counter = 0;
     
     // Wrap data in a mutex lock in an atomic ref counter...
-    let c_arc = Arc::new(Mutex::new(ref_c));
-    let xs_arc = Arc::new(Mutex::new(xs));
+    let atomic_ref_counter_with_mutex = Arc::new(Mutex::new(gopher_counter));
 
-    for i in 0..100 {
+    for _ in 0..1000 {
         // cloning ARC bumps counter up and gives a thread safe passable ref
-        let c_arc = c_arc.clone();
-        let xs_arc = xs_arc.clone();
-        let c_tx = c_tx.clone();
+        let atomic_ref_counter_with_mutex = atomic_ref_counter_with_mutex.clone();
+        let sender = sender.clone();
         thread::spawn(move || {
-            
             // safely mutate shared data after locking
-            let mut ref_c = c_arc.lock().unwrap();
-            *ref_c = *ref_c + 1;
+            let mut gopher_counter = atomic_ref_counter_with_mutex.lock().unwrap();
+            *gopher_counter = *gopher_counter + 1;
             
-            let mut xs = xs_arc.lock().unwrap();
-            xs.push(i);
-            
-            c_tx.send(true).unwrap();
-            
-            
+            sender.send(true).unwrap();
         }); // locks are dropped/unlocked at end of ownership scope
     }
 
-    for _ in 0..100 {
-        c_rx.recv().unwrap();
+    for _ in 0..1000 {
+        receiver.recv().unwrap();
     }
     
-    let ref_c = c_arc.lock().unwrap();
-    let xs = xs_arc.lock().unwrap();
-    println!("{:?}", *ref_c);
-    println!("{:?}", xs.len());
+    let gopher_counter = atomic_ref_counter_with_mutex.lock().unwrap();
+    println!("{:?}", *gopher_counter);
 }
