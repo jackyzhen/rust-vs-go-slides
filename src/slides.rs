@@ -232,7 +232,7 @@ Rust struct and traits:
 
 ---
 
-### Resources
+### References and Resources
 ***
 
 - For learning Rust: [https://doc.rust-lang.org/book/second-edition](https://doc.rust-lang.org/book/second-edition)
@@ -242,6 +242,8 @@ Rust struct and traits:
 - These ugly slides: [https://github.com/jackyzhen/rust-vs-go-slides](https://github.com/jackyzhen/rust-vs-go-slides)
 
 - More indepth intro to Rust with way prettier slides: [https://thoughtram.io/rust-and-nickel/](https://thoughtram.io/rust-and-nickel/)
+
+- Marianno's blog post on scala vs go: [https://movio.co/blog/migrate-Scala-to-Go/](https://movio.co/blog/migrate-Scala-to-Go/)
 
 - Good rust vs go code comparison: [https://codeburst.io/should-i-rust-or-should-i-go-59a298e00ea9](https://codeburst.io/should-i-rust-or-should-i-go-59a298e00ea9)
 
