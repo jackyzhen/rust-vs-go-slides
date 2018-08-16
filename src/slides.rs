@@ -66,11 +66,14 @@ pub const SLIDE_MARKDOWN: & 'static str = r#"
 
 ***
 
-Mutability in go: [https://goplay.space/#I7tOM0WwbH3](https://goplay.space/#I7tOM0WwbH3)
+Mutability in go: [https://goplay.space/#QBcCUqTqi40](https://goplay.space/#QBcCUqTqi40)
+More mutability in go: [https://goplay.space/#fAK3rQ2Csek](https://goplay.space/#fAK3rQ2Csek)
 
 Rust: [https://bit.ly/2vFKakK](https://bit.ly/2vFKakK)
 ---
-<iframe src="https://goplay.space/#I7tOM0WwbH3" />
+<iframe src="https://goplay.space/#QBcCUqTqi40" />
+---
+<iframe src="https://goplay.space/#fAK3rQ2Csek" />
 ---
 <iframe src="https://bit.ly/2vFKakK" />
 ---
@@ -93,18 +96,18 @@ Rust: [https://bit.ly/2vFKakK](https://bit.ly/2vFKakK)
 ***
 
 Go:
-[https://goplay.space/#O-cOQR9ErKm](https://goplay.space/#O-cOQR9ErKm)
+[https://goplay.space/#p8gcisejt52](https://goplay.space/#p8gcisejt52)
 
 Rust Generics:
 [https://bit.ly/2KOGH87](https://bit.ly/2KOGH87)
 
 ---
-<iframe src="https://goplay.space/#O-cOQR9ErKm" />
+<iframe src="https://goplay.space/#p8gcisejt52" />
 ---
 <iframe src="https://bit.ly/2KOGH87" />
 ---
 
-### Functional Features
+### Zero Cost Abstractions Cont
 
 > "Closures and iterators are Rust features inspired by functional programming language ideas. They contribute to Rust’s capability to clearly express high-level ideas at low-level performance. The implementations of closures and iterators are such that runtime performance is not affected. This is part of Rust’s goal to strive to provide zero-cost abstractions." - doc.rust-lang.org/book/second-edition
 
